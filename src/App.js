@@ -5,7 +5,7 @@ import Action from './components/Action/Action.component';
 import Options from './components/Options/Options.component';
 import AddOption from './components/AddOption/AddOption.component';
 import OptionModal from './components/OptionModal/OptionModal.component';
-
+import 'normalize.css/normalize.css';
 import './App.scss';
 
 class App extends React.Component {
@@ -75,9 +75,11 @@ class App extends React.Component {
         return (
             <div className="App">
                 <Header subtitle={subtitle} />
-                <Action hasOptions={this.state.options.length > 0} handlePick={this.handlePick} />
-                <Options options={this.state.options} handleDeleteOption={this.handleDeleteOption} handleDeleteOptions={this.handleDeleteOptions} />
-                <AddOption handleAddOption={this.handleAddOption} />
+                <div className="container">
+                    <Action hasOptions={this.state.options.length > 0} handlePick={this.handlePick} />
+                    <Options options={this.state.options} handleDeleteOption={this.handleDeleteOption} handleDeleteOptions={this.handleDeleteOptions} />
+                    <AddOption handleAddOption={this.handleAddOption} />
+                </div>
                 <OptionModal selectedOption={this.state.selectedOption} handleClearSelectedOption={this.handleClearSelectedOption} />
             </div>
         );
